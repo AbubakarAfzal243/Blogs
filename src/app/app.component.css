@@ -1,47 +1,5 @@
 
-/* .container {
-    position: relative;
- }
- .tag {
-    float: left;
-    position: absolute;
-    left: 15px;
-    top: 24px;
-    z-index: 1000;
-    background-color: #ff0000;
-    padding: 5px;
-    color: #FFFFFF;
-    font-weight: bold;
- } */
 
- .tag {
-    float: left;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: 1000;
-    background-color: #ff0000;
-    padding: 5px;
-    color: #FFFFFF;
-    font-weight: bold;
- }
-
- .text-block {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    background-color: #000000a8;
-    color: white;
-    line-height: 2.0rem;
-    width: 100%;
-    
-    
-    padding-right: 0px; 
-  }
-
-  .font{
-    font-size: 10px;
-  }
 
   .footer{
     background-color:	#000000;
@@ -56,29 +14,6 @@
     font-size: small;
   }
 
-
- /* .row {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 4px;
-  } */
-  
-  /* Create two equal columns that sits next to each other */
-  /* .column {
-    flex: 50%;
-    padding: 0 4px;
-  }
-  
-  .column img {
-    margin-top: 8px;
-    vertical-align: middle;
-  } */
-
-
-  body{
-    width: 80%;
-    margin: auto;
-  }
   
   .header{
     font-size: 6vw;
@@ -88,54 +23,24 @@
     margin-top: 5vw;
     margin-bottom: 5vw;
   }
-  
-  .gallery{
-    display: flex;
+
+  .div-color{
+    height: 30px; background-color: brown;
+  }
+
+  .btn-color{
+    height: 30px; background-color: brown;
+    width: 80px;
   }
   
-  .column{
-    display: block;
-    margin-right: .5vw;
-    width: 100%;
-  }
+.top,
+.bottom {
+  height: 45;
+  width: 45 * 2;  
+}
+
+.top {
+  clip-path: shape(50% 5%, 0% 100%, 100% 100%);
+}
+
   
-  .item{
-    overflow: hidden;
-    position: relative;
-    margin-bottom: .5vw;
-    /* box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4); */
-    
-  }
-  
-  .imginfo{
-    opacity: 0;
-    bottom: -.78vw;
-    left: .6vw;
-  
-    padding: .35vw;
-    color: black;
-    position: absolute;
-    font-size: .65vw;
-    font-family: "Quicksand";
-    transition: .2s;
-    background-color: white;
-  }
-  
-  .imglink:hover + .imginfo, .imginfo:hover{
-    opacity: 1;
-      bottom: .78vw;
-  }
-  
-  .imgdesc{
-    font-size: .58vw;
-    color: dimgray;
-    display: block;
-  }
-  
-  .img{
-    display: block;
-    position: relative;
-    transition: .2s;
-    width: 100%;
-    height: 100%;
-  }

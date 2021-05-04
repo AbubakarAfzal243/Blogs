@@ -1,4 +1,4 @@
-.tag {
+/* .tag {
     float: left;
     position: absolute;
     left: 0px;
@@ -8,7 +8,7 @@
     padding: 5px;
     color: #FFFFFF;
     font-weight: bold;
- }
+ } */
 
  .text-block {
     position: absolute;
@@ -22,3 +22,18 @@
     
     padding-right: 0px; 
   }
+
+  .container {
+    position: relative;
+ }
+ .tag {
+    float: left;
+    position: absolute;
+    left: 15px;
+    top: 24px;
+    z-index: 1000;
+    background-color: #ff0000;
+    padding: 5px;
+    color: #FFFFFF;
+    font-weight: bold;
+ }
