@@ -1,0 +1,25 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "title": "duncan",
+      "content": "australia",
+      "tags": "123",
+      "image": "abc"
+    },
+    {
+      "title": "website",
+      "content": "What is website",
+      "tags": "Responsive website",
+      "image": "C:\\fakepath\\website.png",
+      "id": 5
+    },
+    {
+      "title": "Abubakar",
+      "content": "Abubakar blog",
+      "tags": "",
+      "image": "C:\\fakepath\\website.png",
+      "id": 6
+    }
+  ]
+}

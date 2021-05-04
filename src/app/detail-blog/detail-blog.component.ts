@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { BlogsServiceService } from '../blogs-service.service';
 
 @Component({
   selector: 'app-detail-blog',
@@ -7,9 +10,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailBlogComponent implements OnInit {
 
-  constructor() { }
+  status : any="";
 
-  ngOnInit(): void {
+  id : any ="";
+
+  a : any;
+
+
+  constructor(private route: ActivatedRoute, private httpService: BlogsServiceService) {}
+
+  ngOnInit() {
+    let id = this.route.snapshot.params.id;
+
+    this.status = id;
+
+    this.httpService.getData().subscribe(data => {
+      this.status = data;
+
+      console.log(this.status)
+    })
+    
   }
+
+
+  // constructor(private httpService: BlogsServiceService) { }
+
+  // ngOnInit(): void {
+  //   this.httpService.getData().subscribe(data => {
+  //     this.status = data;
+
+  //     console.log(this.status)
+  //   })
+  // }
 
 }

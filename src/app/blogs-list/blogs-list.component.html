@@ -1,19 +1,37 @@
-<app-header></app-header>
-
 <div class="container">
 
-    <div class="gallery pt-5">
-      <div class="row">
-        <div class="col-lg-6">
+
+
+  <div class="gallery pt-5">
+    <div class="row">
+      <div *ngFor="let data of status">
+
+        <a routerLink="/details/{{data.id}}">
+          <div class="col-lg-6 mt-4">
+            <div>
+              <div class="tag">{{data.tags}}</div>
+
+              <img src="assets/website.png" alt="Blog post" width="530" height="405">
+              <div class="text-block">
+
+                <h5 class="ml-3 pt-2 font-weight-bold">{{data.title}}</h5>
+
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- <div class="col-lg-6">
           <div class="item">
-            <div class="tag">Website</div>
+            <div class="tag">WebSite</div>
             <img src="assets/website.png" alt="Blog post" width="530" height="405">
             <div class="text-block">
               <h5 class="ml-3 pt-2 font-weight-bold">What is Website and Why we create websites</h5>
             </div>
           </div>
-        </div>
-        <div class=" col-lg-3">
+        </div> -->
+      <!-- <div class=" col-lg-3">
           <div class="item">
             <div class="tag">Website</div>
             <img src="assets/website.png" alt="Blog post" width="250" height="200">
@@ -28,17 +46,9 @@
               <h6 class="ml-3 pt-2 font-weight-bold font">What is Website and Why we create websites</h6>
             </div>
           </div>
-        </div>
-  
-        <div class=" col-lg-3">
-  
-          <div class="item">
-            <div class="tag">Website</div>
-            <img src="assets/website.png" alt="Blog post" width="250" height="200">
-            <div class="text-block">
-              <h6 class="ml-3 pt-2 font-weight-bold font">What is Website and Why we create websites</h6>
-            </div>
-          </div>
+        </div> -->
+
+      <!-- <div class=" col-lg-3">
   
           <div class="item">
             <div class="tag">Website</div>
@@ -48,11 +58,17 @@
             </div>
           </div>
   
-        </div>
+          <div class="item">
+            <div class="tag">Website</div>
+            <img src="assets/website.png" alt="Blog post" width="250" height="200">
+            <div class="text-block">
+              <h6 class="ml-3 pt-2 font-weight-bold font">What is Website and Why we create websites</h6>
+            </div>
+          </div>
   
-      </div>
+        </div> -->
+
     </div>
-  
   </div>
 
-  <app-footer></app-footer>
+</div>

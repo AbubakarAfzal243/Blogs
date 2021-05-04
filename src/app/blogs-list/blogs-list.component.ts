@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogsServiceService } from '../blogs-service.service';
 
 @Component({
   selector: 'app-blogs-list',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogsListComponent implements OnInit {
 
-  constructor() { }
+  status : any = '';
+  
+
+  constructor(private httpService: BlogsServiceService) { }
 
   ngOnInit(): void {
+    this.httpService.getData().subscribe(data => {
+      this.status = data;
+
+      console.log(this.status)
+    })
   }
 
 }
