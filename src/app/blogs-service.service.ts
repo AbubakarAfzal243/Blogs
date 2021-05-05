@@ -18,4 +18,10 @@ export class BlogsServiceService {
     
   }
 
+  getDatawithid(data : any){
+    return this.httpClient.get('http://localhost:3000/blogs?id='+data);
+    
+  }
+
+
 }

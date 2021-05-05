@@ -1,7 +1,5 @@
 <div class="container">
 
-
-
   <div class="gallery pt-5">
     <div class="row">
       <div *ngFor="let data of status">
@@ -10,8 +8,10 @@
           <div class="col-lg-6 mt-4">
             <div>
               <div class="tag">{{data.tags}}</div>
+              <!-- <h1>{{data.image}}</h1> -->
 
-              <img src="assets/website.png" alt="Blog post" width="530" height="405">
+              <!-- <img [src]="data.image" alt="Blogpost" width="530" height="405"> -->
+              <img src="assets/images/website.png" alt="Blogpost" width="530" height="405">
               <div class="text-block">
 
                 <h5 class="ml-3 pt-2 font-weight-bold">{{data.title}}</h5>

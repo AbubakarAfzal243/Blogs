@@ -22,12 +22,16 @@ export class DetailBlogComponent implements OnInit {
   ngOnInit() {
     let id = this.route.snapshot.params.id;
 
-    this.status = id;
+    // this.status = id;
 
-    this.httpService.getData().subscribe(data => {
-      this.status = data;
+    // getDatawithid(id){
 
-      console.log(this.status)
+    // }
+
+    this.httpService.getDatawithid(id).subscribe(data => {
+       this.status = data;
+
+      //  console.log(this.status)
     })
     
   }

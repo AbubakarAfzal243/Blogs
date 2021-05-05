@@ -21,10 +21,11 @@
         </div>
         <div class="form-group">
           <label class="form-label" for="customFile">Blog post Image</label>
-          <input type="file" class="form-control" id="file" (change)="handleFileInput($event)" formControlName="image" />
-        </div>
+          <input type="file" class="form-control" accept="image/*" (change)="onFileSelected($event)" formControlName="image"/>
+        </div><br>
+        <!-- <img [src]="imageUrl"><br> -->
         <div class="d-flex justify-content-center">
-          <button type="submit" class="btn btn-dark ">Create</button>
+          <button type="submit" class="btn btn-dark">Create</button>
         </div>
       </form> 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup,  } from '@angular/forms';
+import { FormControl, FormGroup, } from '@angular/forms';
 import { BlogsServiceService } from '../blogs-service.service';
 
 @Component({
@@ -9,13 +9,27 @@ import { BlogsServiceService } from '../blogs-service.service';
 })
 export class CreateBlogComponent implements OnInit {
 
-  image = null;
+  // imageurl = null;
+  // imageUrl: string;
+   imageUrl: string =null;
 
-  handleFileInput(event : any) {
-   console.log(event);
-   this.image = event.target.files[0];
-   console.log("sdcsd", this.image)
-}
+   onFileSelected(event){
+     if(event.target.files){
+       var reader = new FileReader()
+       reader.readAsDataURL(event.target.files[0])
+       reader.onload = (event: any )=>{
+         this.imageUrl = event.target.result
+        //  var image = this.imageUrl;
+         console.log("url :", this.imageUrl)
+       }
+       
+     }
+    // this.selectedFile = <File> event.target.files[0];
+  }
+
+  // selectedFile : File = null;
+
+
 
   blogForm = new FormGroup({
     title: new FormControl(''),
@@ -29,12 +43,43 @@ export class CreateBlogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(data : any) {
+  
+
+
+  onSubmit(data: any) {
     console.log(data);
-    
-    this.http.postData(data).subscribe(data =>{
+
+    // const fb = new FormData();
+    //  fb.append('image', this.selectedFile, this.selectedFile.name);  
+
+    //  console.log(fb);
+
+     this.http.postData(data).subscribe(data => {
       console.log(data);
     })
+
+    // this.http.postData(data).subscribe(data => {
+    //   console.log(data);
+    // })
   }
+
+  // showPreview(event) {
+  //   const file = (event.target as HTMLInputElement).files[0];
+  //   this.blogForm.patchValue({
+  //     image: file
+  //   });
+  //   this.blogForm.get('image').updateValueAndValidity()
+
+ 
+  //   // File Preview
+  //   const reader = new FileReader();
+  //   reader.onload = (event: any) => {
+  //     this.imageUrl = reader.result as string;
+  //   }
+  //   reader.readAsDataURL(file)
+
+  // }
+
+  
 
 }

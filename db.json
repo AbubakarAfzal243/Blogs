@@ -1,13 +1,6 @@
 {
   "blogs": [
     {
-      "id": 1,
-      "title": "duncan",
-      "content": "australia",
-      "tags": "123",
-      "image": "abc"
-    },
-    {
       "title": "website",
       "content": "What is website",
       "tags": "Responsive website",
@@ -15,11 +8,18 @@
       "id": 5
     },
     {
-      "title": "Abubakar",
-      "content": "Abubakar blog",
-      "tags": "",
+      "title": "Create a Responsive Website",
+      "content": "I can create a responsive website in Angular Framework.I can create a responsive website in Angular Framework.I can create a responsive website in Angular Framework.",
+      "tags": "Angular Website",
       "image": "C:\\fakepath\\website.png",
-      "id": 6
+      "id": 9
+    },
+    {
+      "title": "Youtube Channel",
+      "content": "I run a Youtube Channel. I run a Youtube Channel. I run a Youtube Channel. I run a Youtube Channel. I run a Youtube Channel",
+      "tags": "Online Youtube Channel",
+      "image": "C:\\fakepath\\blog2.jpg",
+      "id": 10
     }
   ]
 }

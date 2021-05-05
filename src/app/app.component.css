@@ -3,6 +3,13 @@
 
   .footer{
     background-color:	#000000;
+
+    position: relative;
+  }
+
+  .float-left{
+    float: left;
+    font-size: small;
   }
 
   .tags-color{
@@ -15,17 +22,20 @@
   }
 
   
-  .header{
+  /* .header{
     font-size: 6vw;
     font-family: "Quicksand";
     text-align: center;
     align-content: center;
     margin-top: 5vw;
     margin-bottom: 5vw;
-  }
+  } */
 
   .div-color{
     height: 30px; background-color: brown;
+    color: blanchedalmond;
+    font-size: small;
+    
   }
 
   .btn-color{
@@ -33,7 +43,7 @@
     width: 80px;
   }
   
-.top,
+/* .top,
 .bottom {
   height: 45;
   width: 45 * 2;  
@@ -41,6 +51,20 @@
 
 .top {
   clip-path: shape(50% 5%, 0% 100%, 100% 100%);
+} */
+
+.footer-div{
+  height: 30px;
+  background: #EA192B; /* Old browsers */
+background: -moz-linear-gradient(-45deg,  #EA192B 50%, #2F2F31 51%, #2F2F31 51%, #2F2F31 60%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  #EA192B 50%,#2F2F31 51%,#2F2F31 51%,#2F2F31 60%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  #EA192B 50%,#2F2F31 51%,#2F2F31 51%,#2F2F31 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EA192B', endColorstr='#2F2F31',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.footer-color{
+  color: #EA192B;
+  
 }
 
   
