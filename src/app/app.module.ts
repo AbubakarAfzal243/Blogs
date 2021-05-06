@@ -9,6 +9,7 @@ import { BlogsListComponent } from './blogs-list/blogs-list.component';
 import { BlogsServiceService } from './blogs-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [BlogsServiceService],
   bootstrap: [AppComponent]

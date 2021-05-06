@@ -21,6 +21,9 @@
     font-size: small;
   }
 
+  .header{
+    padding-left: 1.5rem;
+  }
   
   /* .header{
     font-size: 6vw;
