@@ -7,6 +7,6 @@ const nodeSchema = {
     image : String,
 }
 
-const Note = mongoose.model("Note", nodeSchema);
+const Blog = mongoose.model("Blog", nodeSchema);
 
-module.exports = Note;
+module.exports = { Blog };

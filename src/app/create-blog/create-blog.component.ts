@@ -11,25 +11,9 @@ export class CreateBlogComponent implements OnInit {
 
   // imageurl = null;
   // imageUrl: string;
-   imageUrl: string =null;
+  // imageUrl: string = null;
 
-   onFileSelected(event){
-     if(event.target.files){
-       var reader = new FileReader()
-       reader.readAsDataURL(event.target.files[0])
-       reader.onload = (event: any )=>{
-         this.imageUrl = event.target.result
-        //  var image = this.imageUrl;
-         console.log("url :", this.imageUrl)
-       }
-       
-     }
-    // this.selectedFile = <File> event.target.files[0];
-  }
-
-  // selectedFile : File = null;
-
-
+  
 
   blogForm = new FormGroup({
     title: new FormControl(''),
@@ -43,43 +27,31 @@ export class CreateBlogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
+  onFileSelected(event) {
+    const file = event.target.files[0];
+
+    this.blogForm.setValue['image'] = file.name;
+
+    this.blogForm.controls.image = file.name;
 
 
-  onSubmit(data: any) {
-    console.log(data);
 
-    // const fb = new FormData();
-    //  fb.append('image', this.selectedFile, this.selectedFile.name);  
-
-    //  console.log(fb);
-
-     this.http.postData(data).subscribe(data => {
-      console.log(data);
-    })
-
-    // this.http.postData(data).subscribe(data => {
-    //   console.log(data);
-    // })
+    // this.blogForm.controls.image = file;
+    console.log("aa",file.name);
+    console.log("ab",this.blogForm.controls.image);
   }
 
-  // showPreview(event) {
-  //   const file = (event.target as HTMLInputElement).files[0];
-  //   this.blogForm.patchValue({
-  //     image: file
-  //   });
-  //   this.blogForm.get('image').updateValueAndValidity()
+  onSubmit(data: any) {
+    console.log(data.image);
 
- 
-  //   // File Preview
-  //   const reader = new FileReader();
-  //   reader.onload = (event: any) => {
-  //     this.imageUrl = reader.result as string;
-  //   }
-  //   reader.readAsDataURL(file)
+    // data.image = this.blogForm.controls.image
 
-  // }
+   
 
-  
+    //   this.http.postBlog(data).subscribe(data => {
+    //   console.log(data);
+    // })
 
+
+  }
 }

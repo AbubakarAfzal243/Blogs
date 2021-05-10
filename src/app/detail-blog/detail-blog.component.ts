@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Blog } from '../blog.model';
 import { BlogsServiceService } from '../blogs-service.service';
 
 @Component({
@@ -20,21 +21,22 @@ export class DetailBlogComponent implements OnInit {
   constructor(private route: ActivatedRoute, private httpService: BlogsServiceService) {}
 
   ngOnInit() {
-    let id = this.route.snapshot.params.id;
+    var _id = this.route.snapshot.params._id;
+    var params={id:_id}
 
-    // this.status = id;
-
-    // getDatawithid(id){
-
-    // }
-
-    this.httpService.getDatawithid(id).subscribe(data => {
+     console.log("id by Param : ",_id)
+;
+    this.httpService.getDatawithid(_id).subscribe(data => {
        this.status = data;
 
-      //  console.log(this.status)
-    })
+        console.log(this.status)
+    })  
     
   }
+
+  // editBlog(blog : Blog){
+  //    this.httpService.selectBlog = blog; 
+  // }
 
 
   // constructor(private httpService: BlogsServiceService) { }

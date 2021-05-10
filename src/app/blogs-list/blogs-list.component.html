@@ -4,14 +4,13 @@
     <div class="row">
       <div *ngFor="let data of status">
 
-        <a routerLink="/details/{{data.id}}">
+        <a routerLink="/details/{{data._id}}">
           <div class="col-lg-6 mt-4">
             <div>
               <div class="tag">{{data.tags}}</div>
-              <!-- <h1>{{data.image}}</h1> -->
-
-              <!-- <img [src]="data.image" alt="Blogpost" width="530" height="405"> -->
-              <img src="assets/images/website.png" alt="Blogpost" width="530" height="405">
+              <h2>{{data._id}}</h2>
+           
+              <img src="assets/images/website.png" alt="Blogpost" width="330" height="205">
               <div class="text-block">
 
                 <h5 class="ml-3 pt-2 font-weight-bold">{{data.title}}</h5>
@@ -22,53 +21,8 @@
         </a>
       </div>
 
-      <!-- <div class="col-lg-6">
-          <div class="item">
-            <div class="tag">WebSite</div>
-            <img src="assets/website.png" alt="Blog post" width="530" height="405">
-            <div class="text-block">
-              <h5 class="ml-3 pt-2 font-weight-bold">What is Website and Why we create websites</h5>
-            </div>
-          </div>
-        </div> -->
-      <!-- <div class=" col-lg-3">
-          <div class="item">
-            <div class="tag">Website</div>
-            <img src="assets/website.png" alt="Blog post" width="250" height="200">
-            <div class="text-block">
-              <h6 class="ml-3 pt-2 font-weight-bold font">What is Website and Why we create websites</h6>
-            </div>
-          </div>
-          <div class="item">
-            <div class="tag">Website</div>
-            <img src="assets/website.png" alt="Blog post" width="250" height="200">
-            <div class="text-block">
-              <h6 class="ml-3 pt-2 font-weight-bold font">What is Website and Why we create websites</h6>
-            </div>
-          </div>
-        </div> -->
-
-      <!-- <div class=" col-lg-3">
-  
-          <div class="item">
-            <div class="tag">Website</div>
-            <img src="assets/website.png" alt="Blog post" width="250" height="200">
-            <div class="text-block">
-              <h6 class="ml-3 pt-2 font-weight-bold font">What is Website and Why we create websites</h6>
-            </div>
-          </div>
-  
-          <div class="item">
-            <div class="tag">Website</div>
-            <img src="assets/website.png" alt="Blog post" width="250" height="200">
-            <div class="text-block">
-              <h6 class="ml-3 pt-2 font-weight-bold font">What is Website and Why we create websites</h6>
-            </div>
-          </div>
-  
-        </div> -->
-
     </div>
   </div>
 
 </div>
+
