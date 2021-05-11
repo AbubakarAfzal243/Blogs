@@ -1,6 +1,8 @@
 const express = require("express");
 var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' })
 
 var { Blog } = require('../models/model');
 
@@ -19,7 +21,6 @@ router.get('/details', (req, res)=>{
 //    if(!ObjectId.isValid(req.params.id))
 //    return res.status(400).send('No record with given id : ${req.params.id}');
 
-   
 
    Blog.findById(req.query.id, (err, docs)=>{
        console.log("fpvsd", docs);
@@ -78,6 +79,9 @@ router.post('/', (req, res)=>{
     // res.send('hello Worl')
    
 });
+
+
+
 
 module.exports = router;
 

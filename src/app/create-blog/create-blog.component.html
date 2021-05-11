@@ -6,7 +6,7 @@
         <h2>Create Blog Post</h2>
       </div>
 
-      <form [formGroup]="blogForm" (ngSubmit)="onSubmit(blogForm.value)">
+      <form [formGroup]="blogForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
         <div class="form-group">
           <label for="exampleInputEmail1">Blog Title</label>
           <input type="text" class="form-control" placeholder="Enter title" formControlName="title">
@@ -18,13 +18,38 @@
           <label for="exampleInputPassword1">Blog Content</label>
           <input type="text" class="form-control" placeholder="Enter blog content" formControlName="content">
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="exampleInputEmail1">Blog Tags</label>
           <input type="text" class="form-control" placeholder="Enter blog tags" formControlName="tags">
-        </div>
+        </div> -->
+
+
+        <mat-form-field class="example-chip-list">
+          <label for="exampleInputPassword1">Blog Tags</label>
+          <!-- <mat-label>Tags</mat-label> -->
+          <mat-chip-list #chipList aria-label="Fruit selection">
+            <mat-chip *ngFor="let tag of tags" [selectable]="selectable"
+                     [removable]="removable" (removed)="remove(tag)">
+              {{tag.name}}
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input placeholder=""
+                    
+                   formArrayName="tags"
+                   multiple
+                   [matChipInputFor]="chipList"
+                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                   [matChipInputAddOnBlur]="addOnBlur"
+                   (matChipInputTokenEnd)="add($event)"/>
+          </mat-chip-list>
+        </mat-form-field>
+
+
+
         <div class="form-group">
           <label class="form-label" for="customFile">Blog post Image</label>
-          <input type="file" class="form-control" accept="image/*" (change)="onFileSelected($event)" formControlName="image"/>
+          <!-- <img *ngFor='let url of urls' [src]="url"><br> -->
+          <input type="file" class="form-control" accept="image/*" (change)="onFileSelected($event)" formControlName="image" />
         </div><br>
         <!-- <img [src]="imageUrl"><br> -->
         <div class="d-flex justify-content-center">

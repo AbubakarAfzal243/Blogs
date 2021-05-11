@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb+srv://abubakar:mongo123456@mongodb.ldzrw.mongodb.net/nodeMongoDB', {
     useUnifiedTopology: true,
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useCreateIndex: true,
 
 }, (err) => {
     if (!err)

@@ -1,13 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 var cors = require('cors');
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' })
 
 const { mongoose } = require('./db.js');
 var router = require('./routes/route.js');
 
 var app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json({limit: '10mb', extended: true}))
+app.use(bodyParser.urlencoded({limit: '10mb', extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors({ origin: 'http://localhost:4200' }));
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000}));
+
 
 app.listen(3000, ()=> console.log("server run "));
 

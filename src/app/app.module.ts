@@ -12,6 +12,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from "@angular/material/icon";
+
 
 @NgModule({
   declarations: [
@@ -28,6 +31,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     BrowserAnimationsModule,
     MatInputModule,
     MatGridListModule,
+    MatChipsModule,
+    MatIconModule,
   ],
   providers: [BlogsServiceService],
   bootstrap: [AppComponent]

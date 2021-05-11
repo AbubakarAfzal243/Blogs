@@ -5,12 +5,15 @@
       <div *ngFor="let data of status">
 
         <a routerLink="/details/{{data._id}}">
-          <div class="col-lg-6 mt-4">
+          <div class="col-lg-4 ml-3 mt-3 mb-4">
             <div>
-              <div class="tag">{{data.tags}}</div>
-              <h2>{{data._id}}</h2>
+              <div *ngFor="let item of data.tags; let i = index" [attr.data-index]=i>
+              <div class="tag">{{data.tags[i].name}}</div>
+              
+            </div>
+              <!-- <h2>{{data._id}}</h2> -->
            
-              <img src="assets/images/website.png" alt="Blogpost" width="330" height="205">
+              <img src="assets/images/{{data.image}}" alt="Blogpost" width="330" height="205">
               <div class="text-block">
 
                 <h5 class="ml-3 pt-2 font-weight-bold">{{data.title}}</h5>

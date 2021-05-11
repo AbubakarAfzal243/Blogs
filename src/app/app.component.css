@@ -70,4 +70,77 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EA192B', end
   
 }
 
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 100px;
+ 
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.btn-style{
+  height: 25px;
+  width: 25px;
+  margin-top: 0;
+  margin-left: 5px;
+}
+
+.search-field{
+  width: 300px;
+  line-height: 2.0rem;
+  height: 2.5rem;
+  margin-top: 0px;
+}
+.search-btn{
+  height: 2.5rem;
+  max-height: 38px;
+  font-size: small;
+  font-weight: bold;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  
+}
   

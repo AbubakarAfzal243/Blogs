@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const nodeSchema = {
     title: String,
     content : String,
-    tags : String,
+    tags : Array,
     image : String,
 }
 

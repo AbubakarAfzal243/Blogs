@@ -29,6 +29,11 @@ export class DetailBlogComponent implements OnInit {
     this.httpService.getDatawithid(_id).subscribe(data => {
        this.status = data;
 
+      //  this.status.image = this.imageURL;
+
+       console.log("scsdsdfdd", this.status.image);
+       
+
         console.log(this.status)
     })  
     
