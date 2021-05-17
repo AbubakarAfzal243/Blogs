@@ -8,12 +8,18 @@ import { DetailBlogComponent } from './detail-blog/detail-blog.component';
 import { BlogsListComponent } from './blogs-list/blogs-list.component';
 import { BlogsServiceService } from './blogs-service.service';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from "@angular/material/icon";
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { UserServiceService } from './user-service.service';
 
 
 @NgModule({
@@ -21,7 +27,11 @@ import { MatIconModule } from "@angular/material/icon";
     AppComponent,
     CreateBlogComponent,
     DetailBlogComponent,
-    BlogsListComponent
+    BlogsListComponent,
+    HeaderComponent,
+    FooterComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -33,8 +43,10 @@ import { MatIconModule } from "@angular/material/icon";
     MatGridListModule,
     MatChipsModule,
     MatIconModule,
+    Ng2SearchPipeModule,
+    FormsModule,
   ],
-  providers: [BlogsServiceService],
+  providers: [BlogsServiceService, UserServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

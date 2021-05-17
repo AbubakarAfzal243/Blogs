@@ -24,14 +24,16 @@
   }
 
   .container {
-    position: relative;
+    position: none;
+    padding-top: 60px;
  }
  .tag {
     float: left;
-    position: absolute;
+    position: none;
     left: 15px;
     top: 24px;
     z-index: 1000;
+    margin-top: 60px;
     background-color: #ff0000;
     padding: 5px;
     color: #FFFFFF;

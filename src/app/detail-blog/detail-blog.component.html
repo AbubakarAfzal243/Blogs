@@ -1,10 +1,16 @@
+<app-header></app-header>
+
 <div class="container">
 
   <!-- <div *ngFor="let data of status"> -->
 
     <div class="d-flex justify-content-left pt-4">
 
-      <div class="tag">{{status.tags}}</div>
+      <div *ngFor="let item of status.tags; let i = index" [attr.data-index]=i>
+      
+      <div class="tag">{{status.tags[i].name}}</div>
+
+      </div>
     
 
       <img src = "assets/images/{{status.image}}" alt="Blog post" width="500" height="400" >
@@ -29,3 +35,5 @@
   <!-- </div> -->
 
 </div>
+
+<app-footer></app-footer>

@@ -1,4 +1,7 @@
 
+<app-header></app-header>
+
+
 <div class="container">
   <div class="row">
     <div class="col-lg-4 offset-4 pt-5">
@@ -33,10 +36,10 @@
               {{tag.name}}
               <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
             </mat-chip>
-            <input placeholder=""
+            <input type="text" placeholder=""
                     
                    formArrayName="tags"
-                   multiple
+                  multiple
                    [matChipInputFor]="chipList"
                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                    [matChipInputAddOnBlur]="addOnBlur"
@@ -60,3 +63,6 @@
     </div>
   </div>
 </div>
+
+
+<app-footer></app-footer>

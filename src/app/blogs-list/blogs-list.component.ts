@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild , AfterViewInit} from '@angular/core';
 import { Blog } from '../blog.model';
 import { BlogsServiceService } from '../blogs-service.service';
+import { HeaderComponent } from '../header/header.component';
+
 
 @Component({
   selector: 'app-blogs-list',
@@ -10,11 +12,18 @@ import { BlogsServiceService } from '../blogs-service.service';
 export class BlogsListComponent implements OnInit {
 
   status : any = '';
+  searchbtn;
+  text: "";
+  content;
+  loading = true
+
+  @ViewChild(HeaderComponent) child ;
   
 
   constructor(private httpService: BlogsServiceService) { }
 
   ngOnInit(): void {
+
     // this.httpService.getData().subscribe(data => {
     //   this.status = data;
 
@@ -28,5 +37,5 @@ export class BlogsListComponent implements OnInit {
       console.log(this.status)
     })
   }
-
+ 
 }

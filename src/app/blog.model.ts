@@ -5,3 +5,10 @@ export class Blog {
     tags : string
     image : string
 }
+
+export class User{
+    _id : string
+    name : string
+    email : string
+    password : string
+}

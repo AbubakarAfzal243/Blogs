@@ -1,9 +1,11 @@
 .container {
-    position: relative;
+    position: none;
+    padding-top: 50px;
+
  }
  .tag {
     float: left;
-    position: absolute;
+    position: none;
     left: 15px;
     top: 0px;
     z-index: 1000;
@@ -11,6 +13,8 @@
     padding: 5px;
     color: #FFFFFF;
     font-weight: bold;
+
+    
  }
 
  .text-block {
@@ -28,14 +32,17 @@
     padding-right: 0px; 
   }
 
-  .gallery{
-    display: flex;
-  }
+  /* .gallery{
+    display:-moz-inline-grid;
+    
+  } */
   
   .column{
     display: block;
     margin-right: .5vw;
     width: 100%;
+    
+    
   }
   
   .item{
@@ -58,4 +65,38 @@
     font-family: "Quicksand";
     transition: .2s;
     background-color: white;
+    border-radius: 100px;
   }
+
+
+
+  .buttons {
+    /* width: 100%;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: lightsteelblue; */
+    color: maroon;
+    display: flex;
+  }
+  .round {
+    height: 30px;
+    width: 55px;
+    background-color: rgb(185, 117, 117);
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 5px;
+    display: inline;
+    text-align: center;
+    
+    text-transform: uppercase;
+    font-weight: 600;
+    
+  }
+  /* #active {
+  font-size: 0ex;
+  } */
