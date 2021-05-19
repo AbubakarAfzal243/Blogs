@@ -35,7 +35,7 @@ passport.use('local',new LocalStrategy({
     passwordField: 'password',
 },
     function (username, password, done) {
-         console.log('user from passport', User)
+        //  console.log('user from passport', User)
         User.findOne({ email: username }, function (err, user) {
             if (err) { return done(err); }
             if (!user) {

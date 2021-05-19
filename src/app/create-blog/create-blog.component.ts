@@ -9,12 +9,26 @@ import { ToastrService } from 'ngx-toastr';
 export interface Tags {
   name: string;
 }
+interface Category {
+  value: string;
+}
 @Component({
   selector: 'app-create-blog',
   templateUrl: './create-blog.component.html',
   styleUrls: ['./create-blog.component.css']
 })
 export class CreateBlogComponent implements OnInit {
+
+  Category: Category[] = [
+    {value: 'Technology'},
+    {value: 'Lifestyle'},
+    {value: 'Food'},
+    {value: 'Entertainment'},
+    {value: 'Sports'},
+    {value: 'Fitness'},
+    {value: 'Music'},
+    {value: 'Travel'}
+  ];
 
    tag : Tags[] =  [];
    imageUrl: string;
@@ -37,7 +51,7 @@ export class CreateBlogComponent implements OnInit {
     this.blogForm = fb.group({
       title: new FormControl(''),
       content: new FormControl(''),
-      
+      category: new FormControl(''),
       image: new FormControl(''),
       tags: this.fb.array([
         
@@ -84,9 +98,11 @@ export class CreateBlogComponent implements OnInit {
    
     const file = event.target.files[0];
 
-    this.blogForm.value.image = file.name;
+    
 
-    // this.imageUrl = file.name;
+    this.blogForm.value.image = file.name;
+    console.log("file", this.blogForm.value.image)
+    this.imageUrl = file.name;
 
     console.log("aa",file.name);
     console.log("ab",this.blogForm.value.image);
@@ -108,6 +124,7 @@ export class CreateBlogComponent implements OnInit {
     console.log(this.blogForm.value);
 
     this.blogForm.value.tags = this.tags;
+    this.blogForm.value.image = this.imageUrl;
 
     console.log("final tag vlaue : ", this.blogForm.value.tags);
     
@@ -115,14 +132,18 @@ export class CreateBlogComponent implements OnInit {
 
     console.log("finsl vdv",this.blogForm.value);
 
-    console.log("After",this.blogForm.value);
+    console.log("After",this.blogForm.value.image);
     
         this.http.postBlog(this.blogForm.value).subscribe(data => {
           this.toastr.success('Successfully Blog Create!')
+          this.router.navigateByUrl('blogs');
       })
 
-    // this.router.navigateByUrl('login');
+    
 
 
   }
+
+
+
 }

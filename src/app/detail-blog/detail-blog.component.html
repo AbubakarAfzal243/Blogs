@@ -45,7 +45,8 @@
           <div class="post-thumbnail"><img src = "assets/images/{{status.image}}" alt="..." width="500" height="400" ></div>
           <div class="post-details">
             <div class="post-meta d-flex justify-content-between">
-              <div class="category"><a href="#">Business</a><a href="#">Financial</a></div>
+              <div class="date meta-last">{{status.date}}</div>
+              <div class="category"><a href="#">{{status.category}}</a></div>
             </div>
             <h1>{{status.title}}<a href="#"><i class="fa fa-bookmark-o"></i></a></h1>
             <!-- <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="#" class="author d-flex align-items-center flex-wrap">
@@ -61,7 +62,7 @@
               <p class="lead">
               <blockquote class="blockquote">
                 <p>{{status.content}}</p> <footer class="blockquote-footer">Publish by 
-                  <cite title="Source Title">Author Name</cite>
+                  <cite title="Source Title">Author Name : {{status.uname}}</cite>
                 </footer>
               </blockquote>
               </div>

@@ -4,6 +4,8 @@ var ObjectId = require('mongoose').Types.ObjectId;
 var multer = require('multer')
 var upload = multer({ dest: 'uploads/' })
 const passport = require('passport');
+var LocalStorage = require('node-localstorage').LocalStorage,
+localStorage = new LocalStorage('./scratch');
 
 require('../config/passportConfig');
 
@@ -12,7 +14,7 @@ var { User } = require('../models/model');
 
 router.get('/', (req, res) => {
     // res.send('hello Worl')
-    console.log('BLogs', res)
+    // console.log('BLogs', res)
     Blog.find((err, docs) => {
         if (!err) { res.send(docs); }
         else {
@@ -72,9 +74,12 @@ router.post('/', (req, res) => {
     var blog = new Blog({
         title: req.body.title,
         content: req.body.content,
+        category: req.body.category,
         tags: req.body.tags,
         image: req.body.image,
-        date: new Date().toLocaleString("default", { month: "short", day: "2-digit", year: "numeric" })
+        date: new Date().toLocaleString("default", { month: "short", day: "2-digit", year: "numeric" ,   weekday: 'long',}),
+        uname: localStorage.getItem('User_Name')
+       
     });
 
     blog.save((err, docs) => {
@@ -115,7 +120,10 @@ router.post('/login', function (req, res, next) {
 
     // console.log("response", req);
     passport.authenticate('local', function (err, user, info) {
-        // console.log("user from routing", user);
+         console.log("user from routing", user._id);
+         localStorage.setItem('User_Name', user.name);
+         console.log("user id from Node Local Storage", localStorage.getItem('User_Name'));
+
         if (err) { return res.status(501).json(err); }
         if (!user) { return res.status(502).json(info); }
         req.logIn(user, function (err) {

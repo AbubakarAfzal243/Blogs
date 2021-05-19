@@ -951,12 +951,15 @@ Bootstrap Temple Blog Template
    font-weight: 600;
    text-decoration: none;
    border-radius: 50px;
+   background: #151616;
+  color: #fff;
+  border-color: #151616;
  }
  
  .post .post-tags .tag:hover {
-   background: #151616;
-   color: #fff;
-   border-color: #151616;
+   background: #c0c2c2;
+  color: rgb(0, 0, 0);
+  border-color: #c0c2c2;
  }
  
  .post .meta-last::after {

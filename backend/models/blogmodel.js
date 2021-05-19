@@ -11,8 +11,11 @@ const nodeSchema = {
         required: 'Title Field is Empty'
     },
     content: String,
+    category: String,
     tags: Array,
     image: String,
+    date: String,
+    uname: String
 }
 
 const Blog = mongoose.model("Blog", nodeSchema);

@@ -19,8 +19,14 @@ const routes: Routes = [
      path: 'details/:_id', component: DetailBlogComponent 
   },
   {
-    path: 'blogs', component: BlogsListComponent 
+    path: 'blogs/:name', component: BlogsListComponent 
  },
+ {
+   path: 'blogs', component: BlogsListComponent 
+},
+//  {
+//    path: 'blogs', component: BlogsListComponent 
+// },
  {
    path: 'login', component: LoginComponent 
 },

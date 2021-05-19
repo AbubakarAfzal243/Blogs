@@ -23,6 +23,7 @@ import { UserServiceService } from './user-service.service';
 import { ToastrModule } from 'ngx-toastr';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AsideComponentComponent } from './aside-component/aside-component.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { AsideComponentComponent } from './aside-component/aside-component.compo
     MatInputModule,
     MatGridListModule,
     MatChipsModule,
+    MatSelectModule,
     MatIconModule,
     Ng2SearchPipeModule,
     FormsModule,
