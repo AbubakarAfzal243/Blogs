@@ -2,16 +2,16 @@
 // const localStrategy = require('passport-local').Strategy;
 // const mongoose = require('mongoose');
 
-//  var User = mongoose.model('User');
-// var User = require("./models/model");
+
+var User = require('../models/model');
 
 // passport.use(
 //     new localStrategy({ usernameField: 'email' },
 //         (username, password, done) => {
-//             User.findOne({ email: username },
+//             User.findOne( 
 //                 (err, user) => {
 //                     if (err)
-//                         return done(err);
+//                         return done(err); 
 
 //                     else if (!user)
 //                         return done(null, false, { message: 'Email is not registered' });
@@ -35,14 +35,15 @@ passport.use('local',new LocalStrategy({
     passwordField: 'password',
 },
     function (username, password, done) {
-        User.findOne({ username: username }, function (err, user) {
+         console.log('user from passport', User)
+        User.findOne({ email: username }, function (err, user) {
             if (err) { return done(err); }
             if (!user) {
                 return done(null, false, { message: 'Incorrect username.' });
             }
-            if (!user.validPassword(password)) {
-                return done(null, false, { message: 'Incorrect password.' });
-            }
+            // if (!user.(password)) {
+            //     return done(null, false, { message: 'Incorrect password.' });
+            // }
             return done(null, user);
         });
     }
@@ -58,3 +59,5 @@ passport.serializeUser(function(user, done) {
       done(err, user);
     });
   });
+
+  

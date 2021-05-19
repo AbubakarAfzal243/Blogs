@@ -1,19 +1,24 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 const jwt = require('jsonwebtoken');
 
-const nodeSchema = {
-    title: {
-        type: String,
-        required: 'Title Field is Empty'
-    },
-    content: String,
-    tags: Array,
-    image: String,
-}
+require('../config/config.json');
 
-const Blog = mongoose.model("Blog", nodeSchema);
 
-const usersSchema = {
+// const nodeSchema = {
+//     title: {
+//         type: String,
+//         required: 'Title Field is Empty'
+//     },
+//     content: String,
+//     tags: Array,
+//     image: String,
+//     date : String
+// }
+
+// var Blog = mongoose.model("Blog", nodeSchema);
+
+var usersSchema = new Schema ({
     name: {
         type: String,
         required: 'Name Field is Empty'
@@ -24,24 +29,22 @@ const usersSchema = {
         unique: true
     },
     password: String,
-}
+})
 
 
 
-const User = mongoose.model("User", usersSchema);
+//  var User = mongoose.model("User", usersSchema);
 
 // usersSchema.methods.verifyPassword = function(password){
 //     return compareSync(password, this.password);
 // };
 
-// usersSchema.methods.generateJwt = function(){
-//     return jwt.sign({ _id: this.id});
-// };
+usersSchema.methods.generateJwt = function(){
+    return jwt.sign({ _id: this._id},
+        process.env.JWT_SECRET);
 
-module.exports = { Blog };
-// module.exports = { User };
-module.exports = {
+}
 
-    Blog: Blog,
-    User: User
-};
+// module.exports = Blog = mongoose.model("BLog", nodeSchema);
+module.exports = User = mongoose.model("User", usersSchema);
+// module.exports = {User};

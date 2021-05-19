@@ -1,6 +1,5 @@
-
 <div class="header">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+    <nav class="navbar navbar-expand-sm navbar-dark ">
         <ul class="navbar-nav mr-auto ">
             <li class="nav-item">
                 <a class="nav-link" routerLink="/blogs" routerLinkActive="active">Home</a>
@@ -19,30 +18,44 @@
                 <a class="nav-link" href="#">Food</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Feature</a>
+                <a class="nav-link" href="#">Entertainment</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Tag Archive</a>
+                <a class="nav-link" href="#">Sports</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="#">Fitness</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="#">Music</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">404</a>
+                <a class="nav-link" href="#">Travel</a>
             </li>
 
+
         </ul>
-        <div class="input-group search-field">
+
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">
+            <button class="btn btn-dark " type="button" [disabled]="localValues" (click)="logout()">
+                Logout
+            </button>
+        </a>
+
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">
+            <button class="btn btn-dark " type="button" [disabled]="localValue">
+                Login
+            </button>
+        </a>
+
+        <!-- <div class="input-group search-field">
             <input type="text" class="form-control" placeholder="Search this blog" [(ngModel)]="searchword">
             <div class="input-group-append">
                 <button class="btn btn-secondary search-btn" type="button">
                     Search
                 </button>
             </div>
-        </div>
+        </div> -->
 
 
     </nav>

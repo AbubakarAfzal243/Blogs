@@ -20,6 +20,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserServiceService } from './user-service.service';
+import { ToastrModule } from 'ngx-toastr';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AsideComponentComponent } from './aside-component/aside-component.component';
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { UserServiceService } from './user-service.service';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PageNotFoundComponent,
+    AsideComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,8 @@ import { UserServiceService } from './user-service.service';
     MatIconModule,
     Ng2SearchPipeModule,
     FormsModule,
+    ToastrModule.forRoot(),
+    
   ],
   providers: [BlogsServiceService, UserServiceService],
   bootstrap: [AppComponent]

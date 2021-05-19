@@ -4,6 +4,7 @@ import { BlogsServiceService } from '../blogs-service.service';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent } from '@angular/material/chips';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 export interface Tags {
   name: string;
@@ -32,13 +33,7 @@ export class CreateBlogComponent implements OnInit {
     
   ];
 
-  
-  
-
-  
-
-
-  constructor(private http: BlogsServiceService, private router: Router, private fb:FormBuilder) { 
+  constructor(private http: BlogsServiceService, private router: Router, private fb:FormBuilder, private toastr: ToastrService) { 
     this.blogForm = fb.group({
       title: new FormControl(''),
       content: new FormControl(''),
@@ -123,10 +118,10 @@ export class CreateBlogComponent implements OnInit {
     console.log("After",this.blogForm.value);
     
         this.http.postBlog(this.blogForm.value).subscribe(data => {
-        console.log(data);
+          this.toastr.success('Successfully Blog Create!')
       })
 
-    this.router.navigateByUrl('blogs');
+    // this.router.navigateByUrl('login');
 
 
   }

@@ -4,14 +4,16 @@ import { BlogsListComponent } from './blogs-list/blogs-list.component';
 import { CreateBlogComponent } from './create-blog/create-blog.component';
 import { DetailBlogComponent } from './detail-blog/detail-blog.component';
 import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
+import { UserGuardGuard } from './user-guard.guard';
 
 const routes: Routes = [
   {
      path: '', redirectTo: "login", pathMatch: 'full' 
   },
   {
-   path: 'create', component: CreateBlogComponent 
+   path: 'create', component: CreateBlogComponent, canActivate: [UserGuardGuard] 
 },
   {
      path: 'details/:_id', component: DetailBlogComponent 
@@ -25,6 +27,9 @@ const routes: Routes = [
 {
    path: 'register', component: RegisterComponent 
 },
+{
+   path: '**', component: PageNotFoundComponent
+}
 ];
 
 @NgModule({

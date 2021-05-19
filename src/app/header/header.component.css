@@ -1,39 +1,19 @@
 
 
-
-  .footer{
-    background-color:	#000000;
-
-    position: relative;
-  }
-
-  .float-left{
-    float: left;
-    font-size: small;
-  }
-
-  .tags-color{
-      background-color: 	#303030;
-      font-size: small;
-  }
-
-  .div{
-    font-size: small;
-  }
-
   .header{
    
     position: absolute !important;
     width: 100%;
     top: 0;
+    float: right;
  
-    background-color: #333;
+    background-color: rgb(0, 0, 0);
 
   
   }
   
   
-.topnav .search-container button {
+/* .topnav .search-container button {
   float: right;
   padding: 6px 10px;
   margin-top: 8px;
@@ -42,13 +22,13 @@
   font-size: 17px;
   border: none;
   cursor: pointer;
-}
+} */
 
-.topnav .search-container button:hover {
+/* .topnav .search-container button:hover {
   background: #ccc;
-}
+} */
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .topnav .search-container {
     float: none;
   }
@@ -63,9 +43,9 @@
   .topnav input[type=text] {
     border: 1px solid #ccc;  
   }
-}
+} */
 
-.has-search .form-control {
+/* .has-search .form-control {
   padding-left: 2.375rem;
 }
 
@@ -78,9 +58,9 @@
   text-align: center;
   pointer-events: none;
   color: #aaa;
-}
+} */
 
-.btn-style{
+/* .btn-style{
   height: 25px;
   width: 25px;
   margin-top: 0;
@@ -99,7 +79,7 @@
   font-size: small;
   font-weight: bold;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-}
+} */
 
 
   

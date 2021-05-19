@@ -1,6 +1,8 @@
 <app-header></app-header>
 
-<div class="container">
+
+
+<!-- <div class="container">
 
   <input class="mt-3 "type="text" placeholder="Search" [(ngModel)]="searchbtn">
 
@@ -13,14 +15,14 @@
         <a routerLink="/details/{{data._id}}">
           <div class="col-lg-4 ml-3 mt-3 mb-4">
             <div>
-              <ul *ngFor="let item of data.tags; let i = index" [attr.data-index]=i>
-              <a class="tag m-1">{{data.tags[i].name}}</a>
-              
-              </ul>
+              <ul>  
+              <span class="list-inline-item" *ngFor="let item of data.tags; let i = index">
+
+                  <li class="list-inline-item"><a href="#" class="tag">{{data.tags[i].name}}</a></li>
+                  </span>
+
+                </ul>
          
-              
-         
-              <!-- <h2>{{data._id}}</h2> -->
            
               <img src="assets/images/{{data.image}}" alt="Blogpost" width="330" height="205">
               <div class="text-block">
@@ -37,8 +39,76 @@
     </div>
   </div>
 
+</div> -->
+
+
+<!-- Previus code -->
+
+<div class="container mt-5">
+  <div class="row">
+    <aside class="col-lg-3">
+
+      <div class="widget search">
+        <header>
+          <h3 class="h6">Search the blog</h3>
+        </header>
+
+        <div class="form-group">
+          <input type="search" placeholder="What are you looking for?" [(ngModel)]="searchbtn">
+          <button type="submit" class="submit"><i class="icon-search"></i></button>
+        </div>
+
+      </div>
+
+     <app-aside-component></app-aside-component>
+    </aside>
+
+    <main class="posts-listing col-lg-9">
+      <div class="container">
+        <div class="row">
+
+          <div class="post col-xl-6" *ngFor="let data of status | filter: searchbtn">
+            <div class="post-thumbnail"><a routerLink="/details/{{data._id}}"><img src="assets/images/{{data.image}}"
+                  width="400" height="250" alt="..."></a></div>
+            <div class="post-details">
+              <div class="post-meta d-flex justify-content-between">
+                <div class="date meta-last">20 May | 2016</div>
+
+              </div><a routerLink="/details/{{data._id}}">
+                <div class="list-inline-item post-tags mt-0" *ngFor="let item of data.tags; let i = index">
+
+                  <li class="list-inline-item"><a href="#" class="tag">{{data.tags[i].name}}</a></li>
+                </div>
+
+                <h3 class="h4 mt-3">{{data.title}}</h3>
+              </a>
+             
+                
+
+       
+
+              <!-- <p class="text-muted">{{data.content}}</p> -->
+
+            </div>
+          </div>
+
+
+        </div>
+
+        <nav aria-label="Page navigation example">
+          <ul class="pagination pagination-template d-flex justify-content-center">
+            <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
+            <li class="page-item"><a href="#" class="page-link active">1</a></li>
+            <li class="page-item"><a href="#" class="page-link">2</a></li>
+            <li class="page-item"><a href="#" class="page-link">3</a></li>
+            <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </main>
+
+  </div>
 </div>
 
 
 <app-footer></app-footer>
-

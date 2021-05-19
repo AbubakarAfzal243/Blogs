@@ -1,8 +1,7 @@
 <app-header></app-header>
 
-<div class="container">
+<!-- <div class="container">
 
-  <!-- <div *ngFor="let data of status"> -->
 
     <div class="d-flex justify-content-left pt-4">
 
@@ -26,14 +25,59 @@
         <p>{{status.content}}</p>
       </i>
 
-      <!-- <button type="submit">Edit</button> -->
 
     </div>
 
 
 
-  <!-- </div> -->
+</div> -->
 
+<div class="container mt-5 justify-content-between">
+  <div class="row">
+    <aside class="col-lg-3">
+    
+      <app-aside-component></app-aside-component>
+    </aside>
+    <!-- Latest Posts -->
+    <main class="post blog-post col-lg-9"> 
+      <div class="container">
+        <div class="post-single">
+          <div class="post-thumbnail"><img src = "assets/images/{{status.image}}" alt="..." width="500" height="400" ></div>
+          <div class="post-details">
+            <div class="post-meta d-flex justify-content-between">
+              <div class="category"><a href="#">Business</a><a href="#">Financial</a></div>
+            </div>
+            <h1>{{status.title}}<a href="#"><i class="fa fa-bookmark-o"></i></a></h1>
+            <!-- <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="#" class="author d-flex align-items-center flex-wrap">
+                <div class="avatar"><img src="img/avatar-1.jpg" alt="..." class="img-fluid"></div>
+                <div class="title"><span>John Doe</span></div></a>
+              <div class="d-flex align-items-center flex-wrap">       
+                <div class="date"><i class="icon-clock"></i> 2 months ago</div>
+                <div class="views"><i class="icon-eye"></i> 500</div>
+                <div class="comments meta-last"><i class="icon-comment"></i>12</div>
+              </div>
+            </div> -->
+            <div class="post-body">
+              <p class="lead">
+              <blockquote class="blockquote">
+                <p>{{status.content}}</p> <footer class="blockquote-footer">Publish by 
+                  <cite title="Source Title">Author Name</cite>
+                </footer>
+              </blockquote>
+              </div>
+            <div class="post-tags"> <span class="list-inline-item" *ngFor="let item of status.tags; let i = index">
+
+              <li class="list-inline-item"><a href="#" class="tag">{{status.tags[i].name}}</a></li>
+              </span></div>
+
+            
+            
+          </div>
+        </div>
+      </div>
+    </main>
+    
+  </div>
 </div>
 
 <app-footer></app-footer>

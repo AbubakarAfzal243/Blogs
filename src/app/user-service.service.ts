@@ -9,9 +9,28 @@ export class UserServiceService {
   selectBlog : User;
   user : User[];
 
+  loggedInStatus = false
+
   readonly basedURL = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
+
+  setLoggedIn(value: boolean){
+    if(localStorage.getItem('some-key')!== null){
+      this.loggedInStatus = value;
+    }
+    
+  }
+
+  get isLoggedIn(){
+    // return this.loggedInStatus
+    if(localStorage.getItem('some-key')!== null){
+      return this.loggedInStatus = true;
+    }
+    else{
+      return this.loggedInStatus = false;
+    }
+  }
 
   postUser(user: User){
     return this.http.post(this.basedURL+"/register" ,user)
@@ -19,6 +38,13 @@ export class UserServiceService {
 
   loginUser(user: any){
     return this.http.post(this.basedURL+"/login" ,user,{
+      withCredentials: true,
+      headers: new HttpHeaders().append('Content-Type', 'application/json')
+    });
+  }
+
+  logoutUser(){
+    return this.http.get(this.basedURL+"/logout",{
       withCredentials: true,
       headers: new HttpHeaders().append('Content-Type', 'application/json')
     });
