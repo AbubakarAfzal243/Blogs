@@ -25,9 +25,17 @@ export class BlogsServiceService {
   }
 
   getDatawithid(id : any){
-    return this.httpClient.get(this.basedURL+'/details?id='+id);
+    return this.httpClient.get(this.basedURL+'/details?id='+id,{
+      withCredentials: true,
+      headers: new HttpHeaders().append('Content-Type', 'application/json')
+    });
     
   }
+
+  //   getUserData(id : any){
+  //   return this.httpClient.get(this.basedURL+'/user?id='+id);
+    
+  // }
 
 
   // getData(){

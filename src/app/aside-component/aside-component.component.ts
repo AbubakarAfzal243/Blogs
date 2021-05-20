@@ -19,6 +19,8 @@ export class AsideComponentComponent implements OnInit {
       this.httpService.blogs = data as Blog[];
       this.status = this.httpService.blogs;
 
+      this.status.splice(0, 2)
+
     })
   }
 

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Blog } from '../blog.model';
 import { BlogsServiceService } from '../blogs-service.service';
+import { UserServiceService } from '../user-service.service';
 
 @Component({
   selector: 'app-detail-blog',
@@ -11,32 +12,52 @@ import { BlogsServiceService } from '../blogs-service.service';
 })
 export class DetailBlogComponent implements OnInit {
 
-  status : any="";
+  status: any = "";
 
-  id : any ="";
+  id: any = "";
 
-  a : any;
+  a: any;
+  user_id: any;
 
 
-  constructor(private route: ActivatedRoute, private httpService: BlogsServiceService) {}
+  constructor(private route: ActivatedRoute, private httpService: BlogsServiceService, private userService: UserServiceService) { }
 
   ngOnInit() {
     var _id = this.route.snapshot.params._id;
-    var params={id:_id}
+    var params = { id: _id }
 
-     console.log("id by Param : ",_id)
-;
-    this.httpService.getDatawithid(_id).subscribe(data => {
-       this.status = data;
+
+
+    console.log("id by Param : ", _id)
+      ;
+    this.httpService.getDatawithid(_id).subscribe((data: Response) => {
+      this.status = data;
 
       //  this.status.image = this.imageURL;
+      console.log("scsdsdfdd", this.status.image);
+      console.log("user ID", this.status.uid)
+      this.user_id = this.status.uid;
+      console.log("inside", this.user_id)
+      console.log(this.status)
 
-       console.log("scsdsdfdd", this.status.image);
-       
 
-        console.log(this.status)
-    })  
-    
+      // Get User Data
+      // this.httpService.getUserData(this.user_id).subscribe(data => {
+      //   this.status = data;
+
+      //   console.log("User if in subscribe method", this.user_id)
+      // })
+
+    })
+
+
+    // Get User Data
+    // this.userService.getUserData(user_id).subscribe(data => {
+    //   this.status = data;
+
+    //   console.log(user_id)
+    // })
+
   }
 
   // editBlog(blog : Blog){

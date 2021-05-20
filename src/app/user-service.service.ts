@@ -31,11 +31,18 @@ export class UserServiceService {
       return this.loggedInStatus = false;
     }
   }
-
+      // Register User
   postUser(user: User){
     return this.http.post(this.basedURL+"/register" ,user)
   }
 
+  // getUserData(id : any){
+  //   return this.http.get(this.basedURL+'/user?id='+id);
+    
+  // }
+
+
+// Login User
   loginUser(user: any){
     return this.http.post(this.basedURL+"/login" ,user,{
       withCredentials: true,
@@ -43,6 +50,7 @@ export class UserServiceService {
     });
   }
 
+  // Logout User
   logoutUser(){
     return this.http.get(this.basedURL+"/logout",{
       withCredentials: true,

@@ -14,7 +14,7 @@ export class BlogsListComponent implements OnInit {
 
   status : any = '';
   searchbtn;
-  searchbttn;
+  username;
   text: "";
   content;
   loading = true
@@ -40,16 +40,23 @@ export class BlogsListComponent implements OnInit {
       console.log('params', params.get('name'))
       this.searchbtn = params.get('name')
     })
-    // if(cateName) {
-    //   this.searchbtn = cateName;
-    //   console.log("Categury Name by Param : ",this.searchbtn)
-    // }
+
+    // Get Blog Data
     this.httpService.getBlog().subscribe(data => {
       this.httpService.blogs = data as Blog[];
       this.status = this.httpService.blogs;
-
+      console.log("user ID",this.status.uid)
       console.log(this.status)
     })
+
+    
+
+    // Get User Data
+    //   this.httpService.getUserData(status.uid).subscribe(data => {
+    //   this.status = data;
+
+    //   console.log(this.status.uid)
+    // })
   }
  
 }

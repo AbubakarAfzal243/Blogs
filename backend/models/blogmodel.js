@@ -15,9 +15,11 @@ const nodeSchema = {
     tags: Array,
     image: String,
     date: String,
-    uname: String
+    uid: String
 }
 
-const Blog = mongoose.model("Blog", nodeSchema);
+// const Blog = mongoose.model("Blog", nodeSchema);
 
-module.exports = { Blog };
+// module.exports = { Blog };
+
+module.exports = Blog = mongoose.model("Blog", nodeSchema);

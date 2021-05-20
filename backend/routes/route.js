@@ -5,12 +5,12 @@ var multer = require('multer')
 var upload = multer({ dest: 'uploads/' })
 const passport = require('passport');
 var LocalStorage = require('node-localstorage').LocalStorage,
-localStorage = new LocalStorage('./scratch');
+    localStorage = new LocalStorage('./scratch');
 
 require('../config/passportConfig');
 
-var { Blog } = require('../models/blogmodel');
-var { User } = require('../models/model');
+var Blog = require('../models/blogmodel');
+var User = require('../models/model');
 
 router.get('/', (req, res) => {
     // res.send('hello Worl')
@@ -23,19 +23,38 @@ router.get('/', (req, res) => {
     });
 });
 
+
+// get blog details
 router.get('/details', (req, res) => {
     console.log("gdfg", req.query.id);
     //    if(!ObjectId.isValid(req.params.id))
     //    return res.status(400).send('No record with given id : ${req.params.id}');
 
-
     Blog.findById(req.query.id, (err, docs) => {
-        console.log("fpvsd", docs);
-        if (!err) { res.send(docs); }
+        console.log("aaaaaaaaaaa", docs.uid);
+        let userid = docs.uid;
+        if (!err) {
+            res.send(docs);
+            User.findById(userid, (err, docs) => {
+                console.log("userIDDDDDD from find by", docs);
+                res.send(docs);
+
+            });
+        }
         else {
             console.log("Error in retriving Blogs :" + JSON.stringify(err, undefined, 2));
         }
+
+
     });
+
+    // User.findById(req.query.id, (err, docs) => {
+    //     console.log("userIDDDDDD from find by", docs);
+    //     if (!err) { res.send(docs); }
+    //     else {
+    //         console.log("Error in retriving Blogs :" + JSON.stringify(err, undefined, 2));
+    //     }
+    // });
 
 });
 
@@ -77,9 +96,9 @@ router.post('/', (req, res) => {
         category: req.body.category,
         tags: req.body.tags,
         image: req.body.image,
-        date: new Date().toLocaleString("default", { month: "short", day: "2-digit", year: "numeric" ,   weekday: 'long',}),
-        uname: localStorage.getItem('User_Name')
-       
+        date: new Date().toLocaleString("default", { month: "short", day: "2-digit", year: "numeric", weekday: 'long', }),
+        uid: localStorage.getItem('User_Id')
+
     });
 
     blog.save((err, docs) => {
@@ -92,6 +111,22 @@ router.post('/', (req, res) => {
 
 });
 
+
+// get user data with id
+// router.get('/user', (req, res) => {
+//     console.log("userrrr id", req.query.id);
+//     //    if(!ObjectId.isValid(req.params.id))
+//     //    return res.status(400).send('No record with given id : ${req.params.id}');
+
+//     User.findById(req.query.id, (err, docs) => {
+//         console.log("userIDDDDDD from find by", docs);
+//         if (!err) { res.send(docs); }
+//         else {
+//             console.log("Error in retriving Blogs :" + JSON.stringify(err, undefined, 2));
+//         }
+//     });
+
+// });
 
 
 
@@ -120,9 +155,9 @@ router.post('/login', function (req, res, next) {
 
     // console.log("response", req);
     passport.authenticate('local', function (err, user, info) {
-         console.log("user from routing", user._id);
-         localStorage.setItem('User_Name', user.name);
-         console.log("user id from Node Local Storage", localStorage.getItem('User_Name'));
+        console.log("user from routing", user._id);
+        localStorage.setItem('User_Id', user._id);
+        console.log("user id from Node Local Storage", localStorage.getItem('User_Id'));
 
         if (err) { return res.status(501).json(err); }
         if (!user) { return res.status(502).json(info); }

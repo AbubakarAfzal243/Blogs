@@ -5,19 +5,6 @@ const jwt = require('jsonwebtoken');
 require('../config/config.json');
 
 
-// const nodeSchema = {
-//     title: {
-//         type: String,
-//         required: 'Title Field is Empty'
-//     },
-//     content: String,
-//     tags: Array,
-//     image: String,
-//     date : String
-// }
-
-// var Blog = mongoose.model("Blog", nodeSchema);
-
 var usersSchema = new Schema ({
     name: {
         type: String,
@@ -33,7 +20,7 @@ var usersSchema = new Schema ({
 
 
 
-//  var User = mongoose.model("User", usersSchema);
+//  const User = mongoose.model("User", usersSchema);
 
 // usersSchema.methods.verifyPassword = function(password){
 //     return compareSync(password, this.password);
