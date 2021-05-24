@@ -23,20 +23,14 @@ app.use(cors({ origin: 'http://localhost:4200', credentials:true }));
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000}));
 
-
-// app.use(session({
-//     name: 'myname.sid',
-//     resave: false,
-//     saveUninitialized: false,
-//     secret: 'secret',
-//     cookie: {
-//         maxAge : 36000000,
-//         httpOnly : false,
-//         secure : false
-//     }
-// }));
-
-
+app.use((err, req, res, next)=> {
+    if(err.name === 'ValidationError'){
+        var valErrors = [];
+        Object.keys(err.errors).forEach(key => valErrors.push(err.errors[key].message));
+            res.status(422).send(valErrors)
+       
+    }
+});
 
 app.use(passport.initialize());
 // app.use(passport.session());

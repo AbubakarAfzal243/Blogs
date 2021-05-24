@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const jwt = require('jsonwebtoken');
+// var bcrypt = require('bcrypt');
+const { functions } = require('lodash');
 
 require('../config/config.json');
 
@@ -15,22 +17,15 @@ var usersSchema = new Schema ({
         required: 'Email Field is Empty',
         unique: true
     },
-    password: String,
+    password: {
+        type: String,
+        required: 'Passwrod Field is Empty',
+    },
 })
 
-
-
-//  const User = mongoose.model("User", usersSchema);
-
-// usersSchema.methods.verifyPassword = function(password){
-//     return compareSync(password, this.password);
-// };
-
-usersSchema.methods.generateJwt = function(){
-    return jwt.sign({ _id: this._id},
-        process.env.JWT_SECRET);
-
-}
+usersSchema.methods.verifyPassword = function(password){
+    return compareSync(password, this.password);
+};
 
 // module.exports = Blog = mongoose.model("BLog", nodeSchema);
 module.exports = User = mongoose.model("User", usersSchema);

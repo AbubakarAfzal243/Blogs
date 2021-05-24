@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { Blog } from '../blog.model';
 import { BlogsServiceService } from '../blogs-service.service';
@@ -19,26 +20,22 @@ export class DetailBlogComponent implements OnInit {
   a: any;
   user_id: any;
 
-
-  constructor(private route: ActivatedRoute, private httpService: BlogsServiceService, private userService: UserServiceService) { }
+  constructor(private route: ActivatedRoute, private httpService: BlogsServiceService, private userService: UserServiceService, private toastr: ToastrService) { }
 
   ngOnInit() {
     var _id = this.route.snapshot.params._id;
     var params = { id: _id }
 
-
-
-    console.log("id by Param : ", _id)
-      ;
-    this.httpService.getDatawithid(_id).subscribe((data: Response) => {
+    // console.log("id by Param : ", _id)
+    this.httpService.getDatawithid(_id).subscribe(data => {
       this.status = data;
 
       //  this.status.image = this.imageURL;
-      console.log("scsdsdfdd", this.status.image);
-      console.log("user ID", this.status.uid)
-      this.user_id = this.status.uid;
-      console.log("inside", this.user_id)
-      console.log(this.status)
+      // console.log("scsdsdfdd", this.status.image);
+      // console.log("user ID", this.status.uname)
+      // // this.user_id = this.status.uid;
+      // // console.log("inside", this.user_id)
+      // console.log(this.status)
 
 
       // Get User Data
@@ -48,6 +45,10 @@ export class DetailBlogComponent implements OnInit {
       //   console.log("User if in subscribe method", this.user_id)
       // })
 
+    },
+    (err) => {
+      this.toastr.error('Detail Blogs cannot access!')
+      // console.log('status code ->' + err);
     })
 
 

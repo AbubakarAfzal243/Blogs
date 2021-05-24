@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators, } from '@angular/forms';
 import { BlogsServiceService } from '../blogs-service.service';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent } from '@angular/material/chips';
@@ -49,14 +49,31 @@ export class CreateBlogComponent implements OnInit {
 
   constructor(private http: BlogsServiceService, private router: Router, private fb:FormBuilder, private toastr: ToastrService) { 
     this.blogForm = fb.group({
-      title: new FormControl(''),
-      content: new FormControl(''),
-      category: new FormControl(''),
-      image: new FormControl(''),
+      title: new FormControl('', Validators.required),
+      content: new FormControl('', Validators.required),
+      category: new FormControl('', Validators.required),
+      image: new FormControl('', Validators.required),
       tags: this.fb.array([
         
       ]),
     });
+  }
+
+
+  get title() {
+    return this.blogForm.get('title')
+  }
+  get content() {
+    return this.blogForm.get('content')
+  }
+  get category() {
+    return this.blogForm.get('category')
+  }
+  get image() {
+    return this.blogForm.get('image')
+  }
+  get tagg() {
+    return this.blogForm.get('tags')
   }
 
   ngOnInit(): void {
@@ -73,7 +90,7 @@ export class CreateBlogComponent implements OnInit {
       this.tags.push({name: value.trim()});
       this.blogForm.value.tags = this.tags;
 
-      console.log("tag value", this.blogForm.value.tags);
+      // console.log("tag value", this.blogForm.value.tags);
       
     }
 
@@ -101,11 +118,11 @@ export class CreateBlogComponent implements OnInit {
     
 
     this.blogForm.value.image = file.name;
-    console.log("file", this.blogForm.value.image)
+    // console.log("file", this.blogForm.value.image)
     this.imageUrl = file.name;
 
-    console.log("aa",file.name);
-    console.log("ab",this.blogForm.value.image);
+    // console.log("aa",file.name);
+    // console.log("ab",this.blogForm.value.image);
 
     // if(event.target.files){
     //   for(let i=0; i<File.length; i++){
@@ -121,18 +138,22 @@ export class CreateBlogComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.blogForm.value);
+    if (!this.blogForm.valid) {
+      this.toastr.error('Blog Form is Invalid!')
+    }
+    else{
+    // console.log(this.blogForm.value);
 
     this.blogForm.value.tags = this.tags;
     this.blogForm.value.image = this.imageUrl;
 
-    console.log("final tag vlaue : ", this.blogForm.value.tags);
+    // console.log("final tag vlaue : ", this.blogForm.value.tags);
     
-    console.log("for m blog", this.blogForm.value.image);
+    // console.log("for m blog", this.blogForm.value.image);
 
-    console.log("finsl vdv",this.blogForm.value);
+    // console.log("finsl vdv",this.blogForm.value);
 
-    console.log("After",this.blogForm.value.image);
+    // console.log("After",this.blogForm.value.image);
     
         this.http.postBlog(this.blogForm.value).subscribe(data => {
           this.toastr.success('Successfully Blog Create!')
@@ -143,6 +164,7 @@ export class CreateBlogComponent implements OnInit {
 
 
   }
+}
 
 
 

@@ -6,8 +6,8 @@ import { User } from './blog.model';
   providedIn: 'root'
 })
 export class UserServiceService {
-  selectBlog : User;
-  user : User[];
+  selectBlog: User;
+  user: User[];
 
   loggedInStatus = false
 
@@ -15,44 +15,44 @@ export class UserServiceService {
 
   constructor(private http: HttpClient) { }
 
-  setLoggedIn(value: boolean){
-    if(localStorage.getItem('some-key')!== null){
+  setLoggedIn(value: boolean) {
+    if (localStorage.getItem('some-key') !== null) {
       this.loggedInStatus = value;
     }
-    
+
   }
 
-  get isLoggedIn(){
+  get isLoggedIn() {
     // return this.loggedInStatus
-    if(localStorage.getItem('some-key')!== null){
+    if (localStorage.getItem('some-key') !== null) {
       return this.loggedInStatus = true;
     }
-    else{
+    else {
       return this.loggedInStatus = false;
     }
   }
-      // Register User
-  postUser(user: User){
-    return this.http.post(this.basedURL+"/register" ,user)
+  // Register User
+  postUser(user: User) {
+    return this.http.post(this.basedURL + "/register", user)
   }
 
   // getUserData(id : any){
   //   return this.http.get(this.basedURL+'/user?id='+id);
-    
+
   // }
 
 
-// Login User
-  loginUser(user: any){
-    return this.http.post(this.basedURL+"/login" ,user,{
+  // Login User
+  loginUser(user: any) {
+    return this.http.post(this.basedURL + "/login", user, {
       withCredentials: true,
       headers: new HttpHeaders().append('Content-Type', 'application/json')
     });
   }
 
   // Logout User
-  logoutUser(){
-    return this.http.get(this.basedURL+"/logout",{
+  logoutUser() {
+    return this.http.get(this.basedURL + "/logout", {
       withCredentials: true,
       headers: new HttpHeaders().append('Content-Type', 'application/json')
     });

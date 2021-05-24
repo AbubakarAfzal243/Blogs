@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+.error{
+  color: red;
+}
+
 .container {
  
   height: 100vh;
@@ -14,7 +18,7 @@
   font-family: "poppins", Arial, Helvetica, sans-serif;
   place-items: center;
   margin-top: 100px;
-  margin-bottom: 180px;
+  margin-bottom: 200px;
 }
 
 a {

@@ -13,12 +13,12 @@ export class UserGuardGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-      if (this.userService.isLoggedIn == false) {
-        this.router.navigateByUrl('blogs');
-        this.toastr.error('Login required for Create Blogs')
-      }
+    if (this.userService.isLoggedIn == false) {
+      this.router.navigateByUrl('blogs');
+      this.toastr.error('Login required for Create Blogs')
+    }
     return this.userService.isLoggedIn;
-    
+
 
   }
 }

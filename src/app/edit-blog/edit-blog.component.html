@@ -1,0 +1,66 @@
+<app-header></app-header>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-2">
+      <div class="d-flex justify-content-center">
+        <h2>Edit Blog Post</h2>
+      </div>
+      <form [formGroup]="blogForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data" class="mt-2">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Blog Title</label>
+          <input type="text" class="form-control" name="title" [(value)]="status.title" formControlName="title"
+           [ngClass]="{ 'is-invalid': submitted && f.title.errors }" required/>
+           <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Title is required</div>
+        </div>
+        </div>
+
+        <div class="form-group">
+          <label>Blog Category</label>
+          <select class="form-control" id="exampleFormControlSelect1" formControlName="category" required>
+            <!-- <option value="Select Category" placeholder="Select Category">Choose</option> -->
+            <option *ngFor="let cate of Category" value={{cate.value}}>{{cate.value}}</option>
+
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">Blog Image</label>
+          <div class="input-group">
+
+            <input type="file" class="form-control" accept="image/*" (change)="onFileSelected($event)"
+              formControlName="image" required/>
+
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Blog Content</label>
+          <textarea class="form-control bcontent" name="content" formControlName="content"
+          [(value)]="status.content" required></textarea>
+        </div>
+        <mat-form-field class="example-chip-list">
+          <label for="exampleInputPassword1">Blog Tags</label>
+
+          <mat-chip-list #chipList aria-label="Fruit selection">
+            <mat-chip *ngFor="let tag of tags" [selectable]="selectable" [removable]="removable"
+              (removed)="remove(tag)">
+              {{tag.name}}
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input type="text" formArrayName="tags" multiple [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="add($event)" required/>
+          </mat-chip-list>
+        </mat-form-field>
+        <div class="form-group">
+          <input type="submit" value="Update" class="btn btn-dark form-control" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<app-footer></app-footer>

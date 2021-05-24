@@ -24,6 +24,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AsideComponentComponent } from './aside-component/aside-component.component';
 import {MatSelectModule} from '@angular/material/select';
+import { EditBlogComponent } from './edit-blog/edit-blog.component';
+import { ReversePipe } from './reverse-pipe.pipe';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import {MatSelectModule} from '@angular/material/select';
     LoginComponent,
     RegisterComponent,
     PageNotFoundComponent,
-    AsideComponentComponent
+    AsideComponentComponent,
+    EditBlogComponent,
+    ReversePipe,
   ],
   imports: [
     BrowserModule,

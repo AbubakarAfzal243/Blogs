@@ -55,7 +55,7 @@
 
         <div class="form-group">
           <input type="search" placeholder="What are you looking for?" [(ngModel)]="searchbtn">
-          <button type="submit" class="submit"><i class="icon-search"></i></button>
+          <!-- <button type="submit" class="submit"><i class="icon-search"></i></button> -->
         </div>
 
       </div>
@@ -72,7 +72,12 @@
                   width="400" height="250" alt="..."></a></div>
             <div class="post-details">
               <div class="post-meta d-flex justify-content-between">
-                <div class="date meta-last">{{data.date}} &nbsp; (Author : <span>{{data.uid}}</span>)</div>
+                <div class="date meta-last">{{data.date}} &nbsp; (Author : <span>{{data.uname}}</span>)
+                 
+              </div>
+              <div class=" float-left">
+                <button class="custom-btn btn-5" [disabled]="data.valid" (click)="validToEdit(data._id)"><span class="font-weight-bold">Edit</span></button>&nbsp;
+                <button class="custom-btn btn-5" [disabled]="data.valid" (click)="deleteBlog(data._id)"><span class="font-weight-bold">Delete</span></button></div>
 
               </div><a routerLink="/details/{{data._id}}">
                 <div class="list-inline-item post-tags mt-0" *ngFor="let item of data.tags; let i = index">
@@ -82,12 +87,8 @@
 
                 <h3 class="h4 mt-3">{{data.title}}</h3>
               </a>
-             
-                
 
-       
-
-              <!-- <p class="text-muted">{{data.content}}</p> -->
+              <ng-template><h2>Not Found</h2></ng-template>
 
             </div>
           </div>
@@ -95,15 +96,6 @@
 
         </div>
 
-        <!-- <nav aria-label="Page navigation example">
-          <ul class="pagination pagination-template d-flex justify-content-center">
-            <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
-            <li class="page-item"><a href="#" class="page-link active">1</a></li>
-            <li class="page-item"><a href="#" class="page-link">2</a></li>
-            <li class="page-item"><a href="#" class="page-link">3</a></li>
-            <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
-          </ul>
-        </nav> -->
       </div>
     </main>
 

@@ -48,4 +48,8 @@ input[readonly] {
 }
 
 
+.error{
+  color: red;
+}
+
 

@@ -10,12 +10,14 @@ const nodeSchema = {
         type: String,
         required: 'Title Field is Empty'
     },
+ 
     content: String,
     category: String,
     tags: Array,
     image: String,
     date: String,
-    uid: String
+    uname: String,
+    valid: Boolean
 }
 
 // const Blog = mongoose.model("Blog", nodeSchema);

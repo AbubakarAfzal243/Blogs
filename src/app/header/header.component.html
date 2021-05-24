@@ -1,54 +1,113 @@
-<div class="header">
-    <nav class="navbar navbar-expand-sm navbar-dark navbar-fixed-top">
-        <ul class="navbar-nav mr-auto ">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/blogs" routerLinkActive="active">Home</a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link" routerLink="/create" routerLinkActive="active">Create Blogs</a>
-            </li>
+<!-- <div class="header">
+    <nav class="navbar navbar-expand-sm navbar navbar-default navbar-dark navbar-fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto ">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/blogs" routerLinkActive="active">Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" routerLink="/create" routerLinkActive="active">Create Blogs</a>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/blogs/Technology">Technology</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/blogs/Lifestyle">Lifestyle</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/blogs/Food">Food</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/blogs/Entertainment">Entertainment</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/blogs/Sports">Sports</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/blogs/Fitness">Fitness</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/blogs/Music">Music</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/blogs/Travel">Travel</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/blogs/Technology">Technology</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/blogs/Lifestyle">Lifestyle</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/blogs/Food">Food</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/blogs/Entertainment">Entertainment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/blogs/Sports">Sports</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/blogs/Fitness">Fitness</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/blogs/Music">Music</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/blogs/Travel">Travel</a>
+                </li>
 
 
-        </ul>
+            </ul>
 
-        <a class="nav-link" routerLink="/login" routerLinkActive="active">
-            <button class="btn btn-dark " type="button" [disabled]="localValues" (click)="logout()">
-                Logout
-            </button>
-        </a>
+            <a class="nav-link" routerLink="/login" routerLinkActive="active">
+                <button class="btn btn-dark " type="button" [disabled]="localValues" (click)="logout()">
+                    Logout
+                </button>
+            </a>
 
-        <a class="nav-link" routerLink="/login" routerLinkActive="active">
-            <button class="btn btn-dark " type="button" [disabled]="localValue">
-                Login
-            </button>
-        </a>
-
+            <a class="nav-link" routerLink="/login" routerLinkActive="active">
+                <button class="btn btn-dark " type="button" [disabled]="localValue">
+                    Login
+                </button>
+            </a>
+        </div>
 
 
     </nav>
-</div>
+</div> -->
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand">BLOGS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/blogs" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" routerLink="/create" routerLinkActive="active">Create Blogs</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/blogs/Technology">Technology</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/blogs/Lifestyle">Lifestyle</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/blogs/Food">Food</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/blogs/Entertainment">Entertainment</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/blogs/Sports">Sports</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/blogs/Fitness">Fitness</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/blogs/Music">Music</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/blogs/Travel">Travel</a>
+        </li>
+      </ul>
+      <a class="nav-link" routerLink="/login" routerLinkActive="active">
+        <button class="btn btn-dark " type="button" [disabled]="localValues" (click)="logout()">
+            Logout
+        </button>
+    </a>
+
+    <a class="nav-link" routerLink="/login" routerLinkActive="active">
+        <button class="btn btn-dark " type="button" [disabled]="localValue">
+            Login
+        </button>
+    </a>
+    </div>
+  </nav>
