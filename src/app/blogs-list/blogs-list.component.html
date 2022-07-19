@@ -1,58 +1,106 @@
 <app-header></app-header>
 
-<div class="container">
 
-    <div class="gallery pt-5">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="item">
-            <div class="tag">Website</div>
-            <img src="assets/website.png" alt="Blog post" width="530" height="405">
-            <div class="text-block">
-              <h5 class="ml-3 pt-2 font-weight-bold">What is Website and Why we create websites</h5>
-            </div>
+
+<!-- <div class="container">
+
+  <input class="mt-3 "type="text" placeholder="Search" [(ngModel)]="searchbtn">
+
+  <h1>{{text}}</h1>
+
+  <div class="gallery  pt-5">
+    <div class="row">
+      <div *ngFor="let data of status | filter: searchbtn">
+
+        <a routerLink="/details/{{data._id}}">
+          <div class="col-lg-4 ml-3 mt-3 mb-4">
+            <div>
+              <ul>  
+              <span class="list-inline-item" *ngFor="let item of data.tags; let i = index">
+
+                  <li class="list-inline-item"><a href="#" class="tag">{{data.tags[i].name}}</a></li>
+                  </span>
+
+                </ul>
+         
+           
+              <img src="assets/images/{{data.image}}" alt="Blogpost" width="330" height="205">
+              <div class="text-block">
+
+                <h5 class="ml-3 pt-2 font-weight-bold">{{data.title}}</h5>
+
+              </div>
+           
           </div>
-        </div>
-        <div class=" col-lg-3">
-          <div class="item">
-            <div class="tag">Website</div>
-            <img src="assets/website.png" alt="Blog post" width="250" height="200">
-            <div class="text-block">
-              <h6 class="ml-3 pt-2 font-weight-bold font">What is Website and Why we create websites</h6>
-            </div>
           </div>
-          <div class="item">
-            <div class="tag">Website</div>
-            <img src="assets/website.png" alt="Blog post" width="250" height="200">
-            <div class="text-block">
-              <h6 class="ml-3 pt-2 font-weight-bold font">What is Website and Why we create websites</h6>
-            </div>
-          </div>
-        </div>
-  
-        <div class=" col-lg-3">
-  
-          <div class="item">
-            <div class="tag">Website</div>
-            <img src="assets/website.png" alt="Blog post" width="250" height="200">
-            <div class="text-block">
-              <h6 class="ml-3 pt-2 font-weight-bold font">What is Website and Why we create websites</h6>
-            </div>
-          </div>
-  
-          <div class="item">
-            <div class="tag">Website</div>
-            <img src="assets/website.png" alt="Blog post" width="250" height="200">
-            <div class="text-block">
-              <h6 class="ml-3 pt-2 font-weight-bold font">What is Website and Why we create websites</h6>
-            </div>
-          </div>
-  
-        </div>
-  
+        </a>
       </div>
+
     </div>
-  
   </div>
 
-  <app-footer></app-footer>
+</div> -->
+
+
+<!-- Previus code -->
+
+<div class="container mt-5">
+  <div class="row">
+    <aside class="col-lg-3">
+
+      <div class="widget search">
+        <header>
+          <h3 class="h6">Search the blog</h3>
+        </header>
+
+        <div class="form-group">
+          <input type="search" placeholder="What are you looking for?" [(ngModel)]="searchbtn">
+          <!-- <button type="submit" class="submit"><i class="icon-search"></i></button> -->
+        </div>
+
+      </div>
+
+     <app-aside-component></app-aside-component>
+    </aside>
+
+    <main class="posts-listing col-lg-9">
+      <div class="container">
+        <div class="row">
+
+          <div class="post col-xl-6" *ngFor="let data of status | filter: searchbtn">
+            <div class="post-thumbnail"><a routerLink="/details/{{data._id}}"><img src="assets/images/{{data.image}}"
+                  width="400" height="250" alt="..."></a></div>
+            <div class="post-details">
+              <div class="post-meta d-flex justify-content-between">
+                <div class="date meta-last">{{data.date}} &nbsp; (Author : <span>{{data.uname}}</span>)
+                 
+              </div>
+              <div class=" float-left">
+                <button class="custom-btn btn-5" [disabled]="data.valid" (click)="validToEdit(data._id)"><span class="font-weight-bold">Edit</span></button>&nbsp;
+                <button class="custom-btn btn-5" [disabled]="data.valid" (click)="deleteBlog(data._id)"><span class="font-weight-bold">Delete</span></button></div>
+
+              </div><a routerLink="/details/{{data._id}}">
+                <div class="list-inline-item post-tags mt-0" *ngFor="let item of data.tags; let i = index">
+
+                  <li class="list-inline-item"><a class="tag">{{data.tags[i].name}}</a></li>
+                </div>
+
+                <h3 class="h4 mt-3">{{data.title}}</h3>
+              </a>
+
+              <ng-template><h2>Not Found</h2></ng-template>
+
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+</div>
+
+
+<app-footer></app-footer>

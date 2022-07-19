@@ -1,5 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators, } from '@angular/forms';
+import { BlogsServiceService } from '../blogs-service.service';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {MatChipInputEvent } from '@angular/material/chips';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
+export interface Tags {
+  name: string;
+}
+interface Category {
+  value: string;
+}
 @Component({
   selector: 'app-create-blog',
   templateUrl: './create-blog.component.html',
@@ -7,9 +19,153 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateBlogComponent implements OnInit {
 
-  constructor() { }
+  Category: Category[] = [
+    {value: 'Technology'},
+    {value: 'Lifestyle'},
+    {value: 'Food'},
+    {value: 'Entertainment'},
+    {value: 'Sports'},
+    {value: 'Fitness'},
+    {value: 'Music'},
+    {value: 'Travel'}
+  ];
+
+   tag : Tags[] =  [];
+   imageUrl: string;
+  // imageUrl: string = null;
+  blogForm : FormGroup;
+
+  urls=[];
+
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+
+  tags: Tags[] = [
+    
+  ];
+
+  constructor(private http: BlogsServiceService, private router: Router, private fb:FormBuilder, private toastr: ToastrService) { 
+    this.blogForm = fb.group({
+      title: new FormControl('', Validators.required),
+      content: new FormControl('', Validators.required),
+      category: new FormControl('', Validators.required),
+      image: new FormControl('', Validators.required),
+      tags: this.fb.array([
+        
+      ]),
+    });
+  }
+
+
+  get title() {
+    return this.blogForm.get('title')
+  }
+  get content() {
+    return this.blogForm.get('content')
+  }
+  get category() {
+    return this.blogForm.get('category')
+  }
+  get image() {
+    return this.blogForm.get('image')
+  }
+  get tagg() {
+    return this.blogForm.get('tags')
+  }
 
   ngOnInit(): void {
   }
+
+  
+
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    // Add our fruit
+    if ((value || '').trim()) {
+      this.tags.push({name: value.trim()});
+      this.blogForm.value.tags = this.tags;
+
+      // console.log("tag value", this.blogForm.value.tags);
+      
+    }
+
+
+    // Reset the input value
+    if (input) {
+      input.value = '';
+      
+    }
+  }
+
+  remove(fruit: Tags): void {
+    const index = this.tags.indexOf(fruit);
+
+    if (index >= 0) {
+      this.tags.splice(index, 1);
+    }
+  }
+
+  onFileSelected(event) {
+
+   
+    const file = event.target.files[0];
+
+    
+
+    this.blogForm.value.image = file.name;
+    // console.log("file", this.blogForm.value.image)
+    this.imageUrl = file.name;
+
+    // console.log("aa",file.name);
+    // console.log("ab",this.blogForm.value.image);
+
+    // if(event.target.files){
+    //   for(let i=0; i<File.length; i++){
+    //     var reader = new FileReader();
+    //     reader.readAsDataURL(event.target.files[i]);
+    //     reader.onload = (events : any)=>{
+    //       this.urls.push(events.target.result);
+    //     }
+    //   }
+    // }
+    // console.log("urlsss", this.urls);
+    
+  }
+
+  onSubmit() {
+    if (!this.blogForm.valid) {
+      this.toastr.error('Blog Form is Invalid!')
+    }
+    else{
+    // console.log(this.blogForm.value);
+
+    this.blogForm.value.tags = this.tags;
+    this.blogForm.value.image = this.imageUrl;
+
+    // console.log("final tag vlaue : ", this.blogForm.value.tags);
+    
+    // console.log("for m blog", this.blogForm.value.image);
+
+    // console.log("finsl vdv",this.blogForm.value);
+
+    // console.log("After",this.blogForm.value.image);
+    
+        this.http.postBlog(this.blogForm.value).subscribe(data => {
+          this.toastr.success('Successfully Blog Create!')
+          this.router.navigateByUrl('blogs');
+      })
+
+    
+
+
+  }
+}
+
+
 
 }

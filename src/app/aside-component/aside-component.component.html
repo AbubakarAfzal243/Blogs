@@ -1,0 +1,29 @@
+<div class="widget latest-posts">
+  <header>
+    <h3 class="h6">Latest Posts</h3>
+  </header>
+  <div class="blog-posts" *ngFor="let data of status"><a routerLink="/details/{{data._id}}">
+      <div class="item d-flex align-items-center">
+
+        <div class="image"><img src="assets/images/{{data.image}}" alt="..." height="45"></div>
+        <div class="title pb-4"><strong>{{data.title}}</strong>
+
+        </div>
+      </div>
+    </a></div>
+</div>
+
+<div class="widget categories">
+  <header>
+    <h3 class="h6">Categories</h3>
+  </header>
+  <div class="item d-flex justify-content-between"><a>Technology</a><span>{{tech}}</span></div>
+  <div class="item d-flex justify-content-between"><a>Lifestyle</a><span>{{life}}</span></div>
+  <div class="item d-flex justify-content-between"><a>Food</a><span>{{food}}</span></div>
+  <div class="item d-flex justify-content-between"><a>Entertainment</a><span>{{entertainment}}</span></div>
+  <div class="item d-flex justify-content-between"><a>Sports</a><span>{{sports}}</span></div>
+  <div class="item d-flex justify-content-between"><a>Fitness</a><span>{{fitness}}</span></div>
+  <div class="item d-flex justify-content-between"><a>Music</a><span>{{music}}</span></div>
+  <div class="item d-flex justify-content-between"><a>Travel</a><span>{{travel}}</span></div>
+  <div class="item d-flex justify-content-between"><a>Total</a><span>{{total}}</span></div>
+</div>
